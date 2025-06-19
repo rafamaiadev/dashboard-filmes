@@ -1,0 +1,4 @@
+Traceback (most recent call last):
+  File "/home/ubuntu/movie-dashboard/app/main.py", line 11, in <module>
+    from utils.tmdb_client import TMDBClient
+ImportError: cannot import name 'TMDBClient' from 'utils.tmdb_client' (/home/ubuntu/movie-dashboard/app/utils/tmdb_client.py)
