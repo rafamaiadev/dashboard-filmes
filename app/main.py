@@ -257,7 +257,18 @@ def update_roi_chart(year_range, min_rating):
         color_continuous_scale='RdYlGn',
         hover_data=['budget', 'revenue', 'year']
     )
-    
+
+    fig.update_traces(
+        customdata=roi_data[['budget', 'revenue', 'year']].values,
+        hovertemplate=(
+            "ROI (%)=%{x:.2f}<br>"
+            "Filme=%{y}<br>"
+            "Orçamento=%{customdata[0]:,.2f}<br>"
+            "Receita=%{customdata[1]:,.2f}<br>"
+            "Ano=%{customdata[2]}<extra></extra>"
+        )
+    )
+
     fig.update_layout(
         xaxis_title="ROI (%)",
         yaxis_title="Filme",
@@ -297,6 +308,16 @@ def update_spending_chart(year_range, min_rating):
         color='budget_millions',
         color_continuous_scale='Viridis',
         hover_data=['movie_count', 'avg_budget_millions']
+    )
+
+    fig.update_traces(
+        customdata=spending_data[['movie_count', 'avg_budget_millions']].values,
+        hovertemplate=(
+            "País=%{x}<br>"
+            "Orçamento Total= %{y:,.2f}<br>"
+            "Número de Filmes= %{customdata[0]}<br>"
+            "Orçamento Médio= %{customdata[1]:,.2f}<extra></extra>"
+        )
     )
 
     fig.update_layout(
